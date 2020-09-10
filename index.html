@@ -60,12 +60,12 @@
             <!--Section banner-->
             <section class="hero">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <a class="link button primary" href="#">Заказать услугу</a>
+                <button class="button primary" data-modal-open>Заказать услугу</button>
             </section>
             <!--Advanteges-->
-            <section class="section-feature">
+            <section class="section feature">
                 <div class="container">
-                    <h2 class="hidden">
+                    <h2 class="visually-hidden">
                         Преимущества
                     </h2>
                     <ul class="list flex feature-list">
@@ -125,29 +125,32 @@
                 <div class="container">
                     <h2 class="section-title">Чем мы занимаемся</h2>
                     <ul class="list flex examples-list">
+                        <!-- <h3>Desktop applications</h3> -->
                         <li class="item">
                             <img
                                 src="./images/skills1.jpg"
                                 alt="notebook"
                                 width="370"
                             />
-                            <!-- <h3>Desktop applications</h3> -->
+                            <h3 class="text">Десктопные приложения</h3>
                         </li>
+                        <!-- <h3>Mobile applications</h3> -->
                         <li class="item">
                             <img
                                 src="./images/skills2.jpg"
                                 alt="smartphone"
                                 width="370"
                             />
-                            <!-- <h3>Mobile applications</h3> -->
+                            <h3 class="text">Мобильные приложения</h3>    
                         </li>
+                        <!-- <h3>Designer solutions</h3> -->
                         <li class="item">
                             <img
                                 src="./images/skills3.jpg"
                                 alt="Tablet"
                                 width="370"
                             />
-                            <!-- <h3>Designer solutions</h3> -->
+                            <h3 class="text">Дизайнерские решения</h3>
                         </li>
                     </ul>
                 </div>
@@ -320,6 +323,7 @@
                     </ul>
                 </div>
             </section>
+            <!--Clients list-->
             <section class="section">
                 <div class="container">
                     <h2 class="section-title">Постоянные клиенты</h2>
@@ -421,5 +425,15 @@
                 </div>
             </div>
         </footer>
+        <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+                <button class="button" data-modal-close>
+                    <svg class="icon" width="11" height="11">
+                        <use href="./images/svg/sprite.svg#icon-close-modal"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <script src="./js/modal.js"></script>
     </body>
 </html>
