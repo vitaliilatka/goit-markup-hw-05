@@ -6,6 +6,8 @@
     --main-bg-color: #ffffff;
     --second-bg-color: #f5f4fa;
     --third-bg-color: #2f303a;
+    --icon-color: #afb1b8;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Базовые настройки CSS */
 body {
@@ -33,7 +35,7 @@ img {
     list-style: none;
 }
 /* прячет скрытые заголовки */
-.hidden {
+.visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -74,7 +76,20 @@ img {
     padding-top: 32px;
     padding-bottom: 32px;
     color: inherit;
+    transition: color 250ms var(--timing-function);
 }
+
+.nav-main .current::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
 /* Цветовой акцент элементов */
 .nav-main .link.current,
 .header-logo .current,
@@ -113,15 +128,20 @@ img {
     padding-top: 32px;
     padding-bottom: 32px;
     color: var(--second-text-color);
+    transition: color 250ms var(--timing-function);
 }
 /* отступ иконок в хэдере */
 .header-info .icon {
     margin-right: 10px;
+    fill: currentColor;
+    transition: fill 250ms var(--timing-function);
 }
 /* акцент иконок в хэдере */
 .header-info .link:hover > .icon,
-.header-info .link:focus > .icon {
-  --color1: var(--accent-color);
+.header-info .link:focus > .icon,
+.clients-list .link:hover > .icon,
+.clients-list .link:focus > .icon {
+    fill: var(--accent-color);
 }
 
 /* герой */
@@ -144,6 +164,7 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    text-align: center;
 }
 /* Заголовок героя */
 .hero-title {
@@ -159,11 +180,13 @@ img {
 }
 /* кнопка героя */
 .button.primary {
-    display: inline-block;
+    display: block;
     min-width: 200px;
     padding: 10px 32px;
+    border-color: transparent;
     border-radius: 4px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 
     color: var(--main-bg-color);
     background-color: var(--accent-color);
@@ -172,13 +195,14 @@ img {
     line-height: 1.87;
     text-align: center;
     letter-spacing: 0.06em;
+    transition: background-color 250ms var(--timing-function);
 }
 .button.primary:hover,
 .button.primary:focus {
     background-color: #188ce8;
 }
 /* отступы секции преимуществ */
-.section-feature {
+.section.feature {
     padding-top: 94px;
     padding-bottom: 0;
 }
@@ -245,8 +269,28 @@ img {
 }
 /* ширина контента секкции */
 .examples-list .item {
+    position: relative;
     flex-basis: calc((100% - 2 * 30px) / 3);
 }
+.examples-list .text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70px;
+    margin: 0;
+    background-color: rgba(47, 48, 58, 0.8);
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+
+    color: var(--main-bg-color);
+}
+
 /* оформление секции команда  */
 .section.team {
     background-color: var(--secohd-bg-color);
@@ -258,6 +302,7 @@ img {
     border-radius: 0px 0px 4px 4px;
     background-color: var(--main-bg-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px, 2px, 1px, rgba(0, 0, 0, 0.2);
+    background-color: var(--main-bg-color);
 }
 
 /* Заголовки h3 Наша команда */
@@ -294,6 +339,7 @@ img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
+    transition: background-color 250ms var(--timing-function);
 }
 /* меняем фон ссылки при ховере */
 .network-list .link:hover,
@@ -309,6 +355,8 @@ img {
 .network-list .icon {
     width: 20px;
     height: 20px;
+    fill: var(--icon-color);
+    transition: fill 250ms var(--timing-function);
 }
 /* ширина элеентов секции клиенты */
 .clients-list .item {
@@ -320,8 +368,9 @@ img {
     justify-content: center;
     align-items: center;
     height: 90px;
-    border: 1px solid #afb1b8;
+    border: 1px solid var(--icon-color);
     border-radius: 4px;
+    transition: border-color 250ms var(--timing-function);
 }
 /* цвет рамки при ховере */
 .clients-list .link:hover,
@@ -329,9 +378,9 @@ img {
   border-color: var(--accent-color);
 }
 /*  цвет иконки при ховере */
-.clients-list .link:hover .icon,
-.clients-list .link:focus .icon {
-  --color4: var(--accent-color);
+.clients-list .icon {
+    fill: var(--icon-color);
+    transition: fill 250ms var(--timing-function);
 }
 
 /* футер */
@@ -377,6 +426,7 @@ img {
     margin-top: 9px;
 
     color: rgba(255, 255, 255, 0.6);
+    transition: color 250ms var(--timing-function);
 }
 /* текст блока соцсетей футера */
 .footer-networks .text {
@@ -386,7 +436,7 @@ img {
     text-transform: uppercase;
     color: var(--main-bg-color);
 }
-/* фон ссылкт на соцсеть в футере */
+/* фон ссылки на соцсеть в футере */
 .footer-networks .link {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -394,6 +444,55 @@ img {
 .footer-networks .icon {
     --color4: var(--main-bg-color);
 }
+/* бэкдроп */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 250ms var(--timing-function);
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* модальное окно */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    background-color: var(--main-bg-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms var(--timing-function);
+}
+
+/* кнопка закрытия модального окна */
+.modal .button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background-color: var(--main-bg-color);
+}
+
 /* акцент для почты и телефона в футере */
 .footer-address .link:hover,
 .footer-address .link:focus {
@@ -438,12 +537,17 @@ img {
     font-size: 16px;
     line-height: 1.62;
     letter-spacing: 0.03em;
+    transition-property: color, background-color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 /* Акцент кнопок */
 .button.secondary:hover,
 .button.secondary:focus {
-  color: var(--main-bg-color);
-  background-color: var(--accent-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+    color: var(--main-bg-color);
+    background-color: var(--accent-color);
 }
 /* список основных элементов страницы */
 .portfolio-list {
@@ -464,10 +568,66 @@ img {
 .portfolio-list .item:nth-last-child(-n + 3) {
     margin-bottom: 20px;
 }
+.portfolio-list .link {
+    display: block;
+    transition: box-shadow 250ms var(--timing-function);
+}
+.portfolio-list .link:hover,
+.portfolio-list .link:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 .portfolio-list .item:hover {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
       1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+
+.portfolio-list .thumb {
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    transform: translateY(100%);
+    transition: transform 250ms var(--timing-function);
+}
+.portfolio-overlay .overlay-text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.56;
+    color: var(--main-bg-color);
+}
+.portfolio-list .link:hover .portfolio-overlay,
+.portfolio-list .link:focus .portfolio-overlay {
+    transform: translateY(0);
+}
+.card-content {
+    padding: 20px 24px;
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    border-left: 1px solid #eeeeee;
+}
+
+/* заголовки элементов портфолио */
+.portfolio-list .title {
+    margin-top: 0;
+    margin-bottom: 4px;
+    color: var(--main-text-color);
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+}
+
 /* заголовки элементов портфолио */
 .portfolio-list .title {
     margin-top: 0;
