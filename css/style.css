@@ -19,7 +19,8 @@ body {
     letter-spacing: 0.03em;
 }
 /* базовые настройки картинок */
-img {
+img,
+svg {
     display: block;
     max-width: 100%;
     height: auto;
@@ -72,6 +73,7 @@ img {
 }
 /* основная навигация хэдера */
 .nav-main .link {
+    position: relative;
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
@@ -100,7 +102,7 @@ img {
 .header-info .link:focus,
 .footer-info .link:hover,
 .footer-info .link:focus {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 /* Логотип хедера */
