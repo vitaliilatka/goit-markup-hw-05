@@ -37,7 +37,7 @@ svg {
 }
 /* прячет скрытые заголовки */
 .hidden {
-    position: relative;
+    position: absolute;
     width: 1px;
     height: 1px;
     margin: -1px;
@@ -148,14 +148,14 @@ svg {
 
 /* герой */
 .hero {
-    text-align: center;
-    max-width: 1600px;
-    height: 600px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    max-width: 1600px;
+    height: 600px;
+    margin: 0 auto;
     background-color: #c4c4c4;
     background-image: linear-gradient(
       to right,
@@ -275,7 +275,7 @@ svg {
     flex-basis: calc((100% - 2 * 30px) / 3);
 }
 .examples-list .text {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     display: flex;
