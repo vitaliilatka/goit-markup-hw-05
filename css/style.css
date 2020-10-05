@@ -271,7 +271,7 @@ svg {
 }
 /* ширина контента секции */
 .examples-list .item {
-    position: relative;
+    position: absolute;
     flex-basis: calc((100% - 2 * 30px) / 3);
 }
 .examples-list .text {
@@ -424,9 +424,8 @@ svg {
 }
 /* почта и телефон футера */
 .footer-contacts .link {
-    display: inline-block;
+    display: block;
     margin-top: 9px;
-
     color: rgba(255, 255, 255, 0.6);
     transition: color 250ms var(--timing-function);
 }
