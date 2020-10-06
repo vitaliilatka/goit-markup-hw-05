@@ -274,22 +274,22 @@ svg {
     position: absolute;
     flex-basis: calc((100% - 2 * 30px) / 3);
 }
-.examples-list .text {
+.examples-list .thumb {
     position: absolute;
     left: 0;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     height: 70px;
     margin: 0;
     background-color: rgba(47, 48, 58, 0.8);
+}
+.examples-list .text {  
     font-size: 14px;
     line-height: 1.14;
     text-transform: uppercase;
-
     color: var(--main-bg-color);
 }
 
@@ -301,7 +301,7 @@ svg {
 /* элементы списка наша команда */
 .team-list > .item {
     flex-basis: calc((100% - 3 * 30px) / 4);
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 0 0 4px 4px;
     background-color: var(--main-bg-color);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px rgba(0, 0, 0, 0.2);
     background-color: var(--main-bg-color);
