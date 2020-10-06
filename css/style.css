@@ -295,7 +295,7 @@ svg {
 
 /* оформление секции команда  */
 .section.team {
-    background-color: var(--secohd-bg-color);
+    background-color: var(--second-bg-color);
     text-align: center;
 }
 /* элементы списка наша команда */
